@@ -36,9 +36,16 @@ const getGameOver = function () {
   }
 };
 
+function getRandomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 const getGuessNumber = function () {
-  let rightNumber = 55;
+  let rightNumber = getRandomNumber(1, 100);
   const checkingNumber = function () {
+
     let guessNumber = +prompt('Угадай число от 1 до 100');
 
     if (guessNumber === rightNumber) {
