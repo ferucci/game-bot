@@ -1,8 +1,9 @@
 'use strict';
 
+let rightNumber = getRandomNumber(1, 100);
 
 function outputNumberBelowZero() {
-  let numberbelowZero = confirm('Обязательно перечитайте книги по математики с 1 по 4 классы начальной школы?' +
+  let numberbelowZero = confirm('Обязательно перечитайте книги по математики с 1 по 4 классы начальной школы.' +
     ' Повторить еще раз?');
   if (numberbelowZero === true) {
     getGuessNumber();
@@ -42,8 +43,9 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+
 const getGuessNumber = function () {
-  let rightNumber = getRandomNumber(1, 100);
+
   const checkingNumber = function () {
 
     let guessNumber = +prompt('Угадай число от 1 до 100');
