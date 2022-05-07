@@ -17,6 +17,8 @@ function outputHiddenNumberLess() {
   let hiddenNumberLess = confirm(`Загаданное число меньше, осталось попыток ${counter}`);
   if (hiddenNumberLess === true) {
     getGuessNumber();
+  } else {
+    getGameOver();
   }
 }
 
@@ -43,6 +45,7 @@ const attemptsEnded = function () {
   let attemptsEnd = confirm(`Попытки закончились, хотите сыграть еще?`)
   if (attemptsEnd === true) {
     counter = 10
+    console.log(counter)
     getGuessNumber()
   } else {
     alert('Игра окончена')
@@ -64,14 +67,15 @@ const getGuessNumber = function () {
 
     if (guessNumber === rightNumber) {
       rightNumber = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
+
       if (rightNumber === true) {
         rightNumber = getRandomNumber(1, 100);
-
-        getRandomNumber(1, 100)
+        counter = 10
         getGuessNumber()
       } else {
         alert('Спасибо за уделенное время')
       }
+
     } else if (guessNumber !== rightNumber && guessNumber < rightNumber && guessNumber > 0) {
       counter--
       outputHiddenNumberMore();
@@ -98,7 +102,6 @@ const getGuessNumber = function () {
   } else {
     checkingNumber();
   }
-
 
 };
 
